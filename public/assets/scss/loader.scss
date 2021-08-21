@@ -1,0 +1,106 @@
+// Generic non-effect-related CSS
+.loader {
+  /*padding     : 0;
+  align-item: center;
+  font-size   : 0;
+  font-family : 'Nova Flat';
+  color       : white;
+  text-align  : center;*/
+  
+  h1 {
+    display        : block;
+    height         : 25px;
+    font-size      : 20px;
+    color: #5D53C1;
+    
+    margin: 0;
+  position: absolute;
+  top: 50%;
+        left: 35%;
+
+  }
+  
+  > div {
+    display        : inline-block;
+    width          : 25%;
+    min-width      : 500px;
+    margin-bottom  : 50px;
+    > div{
+      margin : 0 auto;
+      //filter:invert(1) hue-rotate(70deg);
+    }
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////
+////////////////////////////// BLACK-HOLE /////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+@keyframes black-hole{
+  0%  { transform:scale(1) translate3d( 75px,0,0) }
+  50% { transform:scale(4) translate3d( 55px,0,0) }
+  100%{ transform:scale(1) translate3d( 75px,0,0) }
+}
+@keyframes black-hole-rotate{
+  0%   { transform: translate(-50%,-50%) rotate(  0deg) skew(3deg)}
+  50%  { transform: translate(-50%,-50%) rotate(180deg) skew(0deg)}
+  100% { transform: translate(-50%,-50%) rotate(360deg) skew(3deg)}
+}
+
+.black-hole{ 
+  backface-visibility: hidden;
+  z-index: 20;
+  position      : relative;
+  overflow      : hidden;
+  border-radius : 50%;
+  width         : 250px;
+  height        : 250px;
+  padding       : 0;
+  box-shadow    : 0 0 30px 0 #7266EE inset;
+  
+  .gooey-container {
+    overflow      : hidden;
+    border-radius : 50%;
+    position      : absolute;
+    top           : 50%;
+    left          : 50%;
+    transform     : translate(-50%,-50%) rotate(0deg) skew(5deg);
+    filter        : url(#gooey-plasma-2);
+    width         : 300px;
+    height        : 300px;
+    padding       : 0;
+    margin        : 0;
+    box-shadow    : 0 0 0 22px #9900ff inset;
+    animation     : black-hole-rotate 5s ease infinite;
+    
+    .bubble {
+      display    : block;
+      position   : absolute;
+      top        : 50%;
+      left       : 50%;
+      width      : 100%;
+      text-align : right;
+
+      &:before{
+        content       : "";
+        display       : inline-block;
+        background    : #756BD9;
+        width         : 100px;
+        height        : 100px;
+        border-radius : 50%;
+        transform     : scale(1) translate3d(75px,0,0);
+        box-shadow    : 0 0 10px 0 #7266EE inset,
+                        0 0 10px 0 #7266EE inset;
+      }
+    }
+    @for $i from 1 through 6 {
+      .bubble:nth-child(#{$i}) {
+        transform : translate(-50%,-50%) rotate(60deg*$i);
+      }
+      .bubble:nth-child(#{$i}):before {
+        animation : black-hole 1s*($i) ease .5s*$i infinite;
+      }
+    }
+  }
+}

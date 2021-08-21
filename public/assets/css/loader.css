@@ -1,0 +1,140 @@
+.loader {
+
+    position: absolute;
+    top: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    z-index: 999999;
+    -webkit-box-align: center !important;
+    align-items: center !important;
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
+}
+body .loader{
+    background: #4d4d4d6b;
+}
+body.dark-layout .loader{
+    background: #000000c4 !important;
+}
+.loader h1 {
+    display: block;
+    height: 25px;
+    font-size: 20px;
+    color: #5d53c1;
+    margin: 0;
+    position: absolute;
+    top: 46%;
+    left: 32%;
+}
+.loader > div {
+    display: inline-block;
+    width: 25%;
+    min-width: 500px;
+    margin-bottom: 50px;
+}
+.loader > div > div {
+    margin: 0 auto;
+}
+@keyframes black-hole {
+    0% {
+        transform: scale(1) translate3d(75px, 0, 0);
+   }
+    50% {
+        transform: scale(4) translate3d(55px, 0, 0);
+   }
+    100% {
+        transform: scale(1) translate3d(75px, 0, 0);
+   }
+}
+@keyframes black-hole-rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) skew(3deg);
+   }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) skew(0deg);
+   }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) skew(3deg);
+   }
+}
+.black-hole {
+    backface-visibility: hidden;
+    z-index: 20;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    padding: 0;
+    box-shadow: 0 0 30px 0 #7266ee inset;
+}
+.black-hole .gooey-container {
+    overflow: hidden;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg) skew(5deg);
+    filter: url(#gooey-plasma-2);
+    width: 300px;
+    height: 300px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 0 22px #90f inset;
+    animation: black-hole-rotate 5s ease infinite;
+}
+.black-hole .gooey-container .bubble {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: right;
+}
+.black-hole .gooey-container .bubble:before {
+    content: "";
+    display: inline-block;
+    background: #756bd9;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: scale(1) translate3d(75px, 0, 0);
+    box-shadow: 0 0 10px 0 #7266ee inset, 0 0 10px 0 #7266ee inset;
+}
+.black-hole .gooey-container .bubble:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(60deg);
+}
+.black-hole .gooey-container .bubble:nth-child(1):before {
+    animation: black-hole 1s ease 0.5s infinite;
+}
+.black-hole .gooey-container .bubble:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(120deg);
+}
+.black-hole .gooey-container .bubble:nth-child(2):before {
+    animation: black-hole 2s ease 1s infinite;
+}
+.black-hole .gooey-container .bubble:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+.black-hole .gooey-container .bubble:nth-child(3):before {
+    animation: black-hole 3s ease 1.5s infinite;
+}
+.black-hole .gooey-container .bubble:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(240deg);
+}
+.black-hole .gooey-container .bubble:nth-child(4):before {
+    animation: black-hole 4s ease 2s infinite;
+}
+.black-hole .gooey-container .bubble:nth-child(5) {
+    transform: translate(-50%, -50%) rotate(300deg);
+}
+.black-hole .gooey-container .bubble:nth-child(5):before {
+    animation: black-hole 5s ease 2.5s infinite;
+}
+.black-hole .gooey-container .bubble:nth-child(6) {
+    transform: translate(-50%, -50%) rotate(360deg);
+}
+.black-hole .gooey-container .bubble:nth-child(6):before {
+    animation: black-hole 6s ease 3s infinite;
+}
